@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>オフラインマップ PWA</title> <link rel="manifest" href="/manifest.json">
+
+    <meta name="theme-color" content="#4CAF50"> <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="オフライン地図"> <link rel="apple-touch-icon" href="/icons/icon-192x192.png"> <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+          crossorigin=""/>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>オフラインマップと現在地表示</h1>
+
+    <div id="map"></div>
+
+    <div class="controls">
+        <p>ダウンロード設定:</p>
+        <label for="min-zoom">最小ズーム:</label>
+        <input type="number" id="min-zoom" value="13" min="1" max="18">
+        <label for="max-zoom">最大ズーム:</label>
+        <input type="number" id="max-zoom" value="16" min="1" max="18">
+        <p>（注意: ズームレベルが1増えるとタイル数は約4倍になります）</p>
+        <button id="download-btn">指定範囲の地図をダウンロード</button>
+        <button id="delete-btn">オフライン地図を削除</button>
+        <button id="locate-btn">現在地に移動</button>
+    </div>
+
+    <div id="status">ステータス: アイドル</div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+            crossorigin=""></script>
+    <script src="script.js"></script>
+</body>
+</html>
